@@ -26,7 +26,7 @@ def viewCalendar(request, id=None):
     bookform = BookingForm(request.POST, instance=book)
     if bookform.is_valid():
         bookform.save()
-        return redirect("view-calendar", id=book)
+        return redirect("view-calendar", id=book.id)
     bookform = BookingForm(instance=book)
     books["bookform"] = bookform
     all_events = Booking.objects.all()
